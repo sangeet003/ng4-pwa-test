@@ -17,6 +17,19 @@
 	<my-app>
 		Loading...
 	</my-app>
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCyxH5mUyI8SZuIuB2s6Nmlf4SNqKOlBZQ",
+      authDomain: "learn-compute.firebaseapp.com",
+      databaseURL: "https://learn-compute.firebaseio.com",
+      projectId: "learn-compute",
+      storageBucket: "",
+      messagingSenderId: "533244322804"
+    };
+    firebase.initializeApp(config);
+  </script>
 	<script type="text/javascript" src="hammer.min.js"></script>
 	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=console.*,Intl.~locale.en&gated=1"></script>
 	<div id="str-dlls">
@@ -24,5 +37,14 @@
 		<%= '<' %>script src="/vendor.dll.js"<%= '>' %><%= '<' %>/script<%= '>' %>
 	</div>
 	<script src="/index.js"></script>
+  <script defer>
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('service-worker.js').then(() => {
+        console.log('Service worker installed')
+    }, err => {
+        console.error('Service worker error:', err);
+      });
+    }
+  </script>
 </body>
 </html>

@@ -84,7 +84,8 @@
     "watch:universal": "npm-run-all -p -r \"build:universal -- --watch\" sass:watch",
     "universal": "npm run build:universal && npm run server:universal",
     "universal:aot": "npm run build:universal:aot && npm run server:universal",
-    "universal:watch": "npm run build:universal && npm-run-all -p -r watch:universal server:universal"
+    "universal:watch": "npm run build:universal && npm-run-all -p -r watch:universal server:universal",
+    "precache": "sw-precache --verbose --config=sw-precache-config.js"
   },
   "dependencies": {
     "@angular/animations": "~4.1.0",
@@ -172,6 +173,7 @@
     "sass-loader": "^6.0.5",
     "source-map-loader": "~0.2.1",
     "string-replace-loader": "~1.2.0",
+    "sw-precache": "^5.2.0",
     "to-string-loader": "~1.1.5",
     "ts-helpers": "~1.1.2",
     "ts-node": "~3.0.2",

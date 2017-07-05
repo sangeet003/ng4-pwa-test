@@ -2,7 +2,6 @@
 // ensure routes match client-side-app
 export const routes: string[] = [
   '',
-  'lazy',
-  'sync',
+  '/product',
   'wronglink'
 ];

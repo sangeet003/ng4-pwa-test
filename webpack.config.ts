@@ -30,6 +30,7 @@ const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const ScriptExtPlugin = require('script-ext-html-webpack-plugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const webpackMerge = require('webpack-merge');
+const OfflinePlugin = require('offline-plugin');
 const { getAotPlugin } = require('./webpack.aot');
 
 const { hasProcessFlag, includeClientPackages, root, testDll } = require('./helpers.js');
@@ -230,6 +231,9 @@ const clientConfig = function webpackConfig(): WebpackConfig {
       new ScriptExtPlugin({
         defaultAttribute: 'defer'
       })
+    );
+    config.plugins.push(
+      new OfflinePlugin()
     );
   }
 

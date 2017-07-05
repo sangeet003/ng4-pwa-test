@@ -1,0 +1,48 @@
+.card {
+  width: 250px;
+  height: 400px;
+  max-width: 100%;
+  display: inline-block;
+  position: relative;
+  border-radius: 2px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .thumbnail {
+    width: 100%;
+    height: 250px;
+    display: block;
+    background: transparent no-repeat center;
+    background-size: contain;
+    margin: 10px 0;
+  }
+
+  .name {
+    color: #000000;
+    text-align: center;
+    display: block;
+  }
+
+  .actions, .info {
+    display: block;
+    border-top: 1px solid #EEE;
+    padding: 5px 0;
+  }
+
+  .info {
+    margin-top: 10px;
+    text-align: left;
+    span {
+      padding: 0 10px;
+      display: inline-block;
+      &.sizes {
+        text-align: right;
+        float: right;
+      }
+    }
+  }
+
+}
+

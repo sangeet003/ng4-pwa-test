@@ -1,10 +1,4 @@
-export const data = {
-  greeting: 'Hello',
-  name: 'World'
-};
-
-
-export const products = [
+[
   {
     "productId": 1,
     "name": "Product 1",
@@ -27,8 +21,8 @@ export const products = [
   },
   {
     "productId": 2,
-    "name": "Product 1",
-    "price": 1000,
+    "name": "Product 2",
+    "price": 2000,
     "color": "#999",
     "sizeAvailable": ["s", "m", "l"],
     "discount": 15,
@@ -38,11 +32,11 @@ export const products = [
     "brandId": 1,
     "forGender": ["m", "f"],
     "soldBy": "Super Hero Shop",
-    "thumbnailUrl": "http://lorempixel.com/200/250/fashion/1",
+    "thumbnailUrl": "http://lorempixel.com/200/250/fashion/4",
     "otherImages": [
-      "http://lorempixel.com/200/250/fashion/1",
-      "http://lorempixel.com/200/250/fashion/2",
-      "http://lorempixel.com/200/250/fashion/3"
+      "http://lorempixel.com/200/250/fashion/4",
+      "http://lorempixel.com/200/250/fashion/5",
+      "http://lorempixel.com/200/250/fashion/6"
     ]
   }
-];
+]

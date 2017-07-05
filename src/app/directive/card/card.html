@@ -1,0 +1,30 @@
+<!--<md-card class="card">
+  <md-card-header>
+    <md-card-title [routerLink]="'product/'+product.productId">{{product.name}}</md-card-title>
+  </md-card-header>
+  <img md-card-image [routerLink]="'product/'+product.productId" [src]="sanatizeImageURL(product.thumbnailUrl)" [alt]="product.name">
+  <md-card-content>
+    <md-card-subtitle>{{product.brand}}</md-card-subtitle>
+    <span>Sizes: {{getSizesText()}}</span>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>ADD TO CART</button>
+    <button md-button [routerLink]="'product/'+product.productId">DETAILS</button>
+  </md-card-actions>
+</md-card>-->
+
+<div class="card">
+  <a [routerLink]="'product/'+product.productId" class="thumbnail"
+     [style.backgroundImage]="getThumbnailBackground()"></a>
+  <a [routerLink]="'product/'+product.productId" class="name">{{product.name}}</a>
+  <a [routerLink]="'brand/'+product.brandId"><span>{{product.brand}}</span></a>
+  <div class="info">
+    <span>Price: ${{product.price}}</span>
+    <span class="sizes">Brand: {{getBrand()}}</span>
+  </div>
+  <div class="actions">
+    <a md-button>ADD TO CART</a>
+    <a md-button [routerLink]="'product/'+product.productId">MORE INFO</a>
+  </div>
+
+</div>

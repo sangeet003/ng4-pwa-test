@@ -27,6 +27,7 @@ app.set('views', 'src');
 app.use(compression());
 app.use('/', express.static('dist', { index: false }));
 app.use('/assets', express.static(path.join(__dirname, 'assets'), { maxAge: 30 }));
+app.use('/service-worker.js', express.static(path.join(__dirname, 'assets/dist_root/service-worker.js'), { maxAge: 30 }));
 
 routes.forEach(route => {
   app.get('/' + route, (req, res) => {
@@ -42,6 +43,12 @@ routes.forEach(route => {
 app.get('/data', (req, res) => {
   console.time(`GET: ${req.originalUrl}`);
   res.json(api.getData());
+  console.timeEnd(`GET: ${req.originalUrl}`);
+});
+
+app.get('/products', (req, res) => {
+  console.time(`GET: ${req.originalUrl}`);
+  res.json(api.getProducts());
   console.timeEnd(`GET: ${req.originalUrl}`);
 });
 

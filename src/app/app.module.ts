@@ -30,6 +30,10 @@ import { routes } from './app.routing';
 import { AppComponent } from './app.component';
 
 import { AppState } from './reducers';
+import {
+  MdButtonModule, MdCardModule, MdGridListModule, MdIconModule, MdListModule,
+  MdSidenavModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,12 @@ import { AppState } from './reducers';
     HttpModule,
     APP_IMPORTS,
     RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: PreloadAllModules }),
+    MdIconModule,
+    MdSidenavModule,
+    MdGridListModule,
+    MdCardModule,
+    MdListModule,
+    MdButtonModule
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],

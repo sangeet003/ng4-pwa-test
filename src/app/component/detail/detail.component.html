@@ -1,0 +1,5 @@
+<div>{{product.name}}</div>
+<img [src]="getThumbnail()" [alt]="product.name">
+<span>Price: ${{product.price}}</span>
+<span>Brand: ${{getBrand()}}</span>
+<div [innerHTML]="getDescription()"></div>
