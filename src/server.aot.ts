@@ -28,6 +28,7 @@ app.use(compression());
 app.use('/', express.static('dist', { index: false }));
 app.use('/assets', express.static(path.join(__dirname, 'assets'), { maxAge: 30 }));
 app.use('/service-worker.js', express.static(path.join(__dirname, 'assets/dist_root/service-worker.js'), { maxAge: 30 }));
+app.use('/manifest.json', express.static(path.join(__dirname, 'assets/dist_root/manifest.json'), { maxAge: 30 }));
 
 routes.forEach(route => {
   app.get('/' + route, (req, res) => {
