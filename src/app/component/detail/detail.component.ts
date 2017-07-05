@@ -43,7 +43,7 @@ export class DetailComponent implements OnInit {
           let op = Object.values(product.json());
           if ( Array.isArray(op) && op.length > 1 ) {
             for ( let i = 0; i < op.length; i++ ) {
-              if ( op !== null && Number(op[i].productId) === Number(this.id) ) {
+              if ( op[i] !== null && Number(op[i].productId) === Number(this.id) ) {
                 this.product = <Product> op[i];
                 break;
               }
