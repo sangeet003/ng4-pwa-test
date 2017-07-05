@@ -188,6 +188,10 @@
     "webpack-md5-hash": "^0.0.5",
     "webpack-merge": "~4.1.0"
   },
+  "engines": {
+    "node": "7.9.0",
+    "npm": "4.2.0"
+  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/qdouble/angular-webpack2-starter/issues"
