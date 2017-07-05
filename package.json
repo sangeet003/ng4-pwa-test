@@ -8,7 +8,7 @@
     "url": "git+https://github.com/qdouble/angular-webpack2-starter.git"
   },
   "scripts": {
-    "postinstall": "npm run sass && npm run build:dll",
+    "postinstall": "npm run sass && npm run build:dll && npm run build:universal:aot && npm run precache",
     "rimraf": "rimraf",
     "webdev": "webpack-dev-server",
     "webdev:hmr": "npm run webdev -- --inline --hot",
@@ -45,7 +45,7 @@
     "prodserver": "node prodserver",
     "sass": "node-sass \"src/app/styles.scss\" \"src/app/styles.css\" --include-path node_modules --output-style compressed -q",
     "sass:watch": "node-sass -w  \"src/app/styles.scss\" \"src/app/styles.css\"  --include-path node_modules --output-style compressed -q",
-    "start": "npm run build:universal:aot && npm run precache",
+    "start": "npm run server:universal",
     "start:hmr": "npm run server:hmr",
     "serve80": "sudo PORT=80 node prodserver",
     "server:dev": "npm-run-all -p -r webdev sass:watch",
