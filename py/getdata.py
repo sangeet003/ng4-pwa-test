@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import html5lib
-# import cgi
 
 def dataParser(prodUrl):
 
@@ -20,8 +19,6 @@ def dataParser(prodUrl):
 
 def seeder(baseUrl):
 
-  	jsonFile = open('products.json', 'a')
-	jsonFile.write('[')
  	jsonData = {}
 
 	soup = BeautifulSoup(requests.get(baseUrl).text.encode('utf-8'), 'html5lib')
@@ -46,6 +43,10 @@ def seeder(baseUrl):
 		jsonData['sourceUrl']    = prodUrl
 		jsonData['thumbnailUrl'] = prodImage
 		jsonData['description']  = str(parsedData[1]).replace('\n', '')
+		if urlNo == 1:
+		  jsonData['forGender']    = 'm'
+		else:
+		  jsonData['forGender']    = 'f'
 		jsonFile.write( json.dumps( jsonData, sort_keys=True, indent=2, separators=(',', ': ') ) )
 		jsonFile.write(',\n')
 		print jsonData
@@ -54,19 +55,19 @@ def seeder(baseUrl):
 
 		jsonList.append(jsonData)
 
-	print jsonList
-	print '\n'
-	print '\n'
-	jsonFile.write(']')
-	# jsonFile.write( json.dumps( jsonList, sort_keys=True, indent=2, separators=(',', ': ') ) )
-	jsonFile.close()
-
-
 if __name__ == '__main__':
 
-	jsonList = []
-	urls = ['http://www.partycity.com/category/halloween+costumes/mens+costumes+accessories/mens+superheroes+costumes.do', 'http://www.partycity.com/category/halloween+costumes/womens+costumes+accessories/womens+superheroes+costumes.do']
+  jsonFile = open('products.json', 'a')
+  jsonFile.write('[')
+  jsonList = []
+  urlNo = 1
+  urls = ['http://www.partycity.com/category/halloween+costumes/mens+costumes+accessories/mens+superheroes+costumes.do', 'http://www.partycity.com/category/halloween+costumes/womens+costumes+accessories/womens+superheroes+costumes.do']
 
-	for url in urls:
-		seeder(url)
-		# break
+  for url in urls:
+    seeder(url)
+    urlNo = urlNo + 1
+    # break
+
+  jsonFile.write(']')
+  # jsonFile.write( json.dumps( jsonList, sort_keys=True, indent=2, separators=(',', ': ') ) )
+  jsonFile.close()
