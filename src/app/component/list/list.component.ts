@@ -27,7 +27,7 @@ export class ListComponent implements OnInit {
       this.products.push( new Product() );*/
 
     try {
-      this.http.get(API_BASE_URL + '/products.json')
+      this.http.get(`${API_BASE_URL}products.json`)
         .subscribe(products => {
           this.products = <Product[]> products.json();
         }, error => {
