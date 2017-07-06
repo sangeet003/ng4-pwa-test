@@ -22,10 +22,10 @@ app.engine('html', ngExpressEngine({
 }));
 
 function httpsRedirect(req, res, next) {
-  if(req.headers['x-forwarded-proto']!='https')
-    res.redirect('https://mypreferreddomain.com'+req.url)
+  if (req.headers['x-forwarded-proto'] !== 'https')
+    res.redirect('https://' + req.headers.host + req.url)
   else
-    next() /* Continue to other routes if we're not redirecting */
+    next(); /* Continue to other routes if we're not redirecting */
 };
 
 app.set('view engine', 'html');
