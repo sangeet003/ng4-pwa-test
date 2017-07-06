@@ -22,7 +22,7 @@ app.engine('html', ngExpressEngine({
 }));
 
 function httpsRedirect(req, res, next) {
-  if (req.headers.host.search('localhost') !== 0 && req.protocol === 'http') {
+  if (req.host !== 'localhost' && req.protocol !== 'https') {
     return res.redirect(301, 'https://' + req.headers.host + req.originalUrl);
   }
   next();
