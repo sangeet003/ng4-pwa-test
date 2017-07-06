@@ -3,5 +3,6 @@
 export const routes: string[] = [
   '',
   '/product',
-  'wronglink'
+  'wronglink',
+  '*'
 ];

@@ -22,7 +22,6 @@ app.engine('html', ngExpressEngine({
 }));
 
 function httpsRedirect(req, res, next) {
-  console.log('host: '+req.headers['host']);
   if (req.headers['x-forwarded-proto'] !== 'https' && req.headers['host'].search('localhost') !== 0)
     res.redirect('https://' + req.headers.host + req.url)
   else
