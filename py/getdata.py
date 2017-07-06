@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import wget
 import json
 import html5lib
 
@@ -40,8 +41,10 @@ def seeder(baseUrl):
 		jsonData['productId']    = int(prodId.replace('P', '').replace('&$hide_clearance=0', ''))
 		jsonData['name']  		 = prodName
 		jsonData['price']	  	 = parsedData[0]
+		filename = wget.download(prodImage, out='../src/assets/img/'+str(jsonData['productId']))
 		jsonData['sourceUrl']    = prodUrl
-		jsonData['thumbnailUrl'] = prodImage
+		# jsonData['thumbnailUrl'] = prodImage
+		jsonData['thumbnailUrl'] = '/assets/img/'+str(jsonData['productId'])
 		jsonData['description']  = str(parsedData[1]).replace('\n', '')
 		if urlNo == 1:
 		  jsonData['forGender']    = 'm'

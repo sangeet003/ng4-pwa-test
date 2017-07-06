@@ -1,5 +1,11 @@
 <div>{{product.name}}</div>
+<br>
 <img [src]="getThumbnail()" [alt]="product.name">
+<br>
 <span>Price: ${{product.price}}</span>
-<span>Brand: ${{getBrand()}}</span>
+<br>
+<span>Brand: {{getBrand()}}</span>
+<br>
+<span>For Gender: {{product.forGender == 'm' ? 'Men' : 'Women'}}</span>
+<br>
 <div [innerHTML]="getDescription()"></div>

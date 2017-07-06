@@ -9,7 +9,7 @@ export class Product {
   type: string = '';
   brand: string = '';
   brandId: number = 0;
-  forGender: string[] = [];
+  forGender: string = '';
   soldBy: string = '';
   thumbnailUrl: string = '';
   otherImages: string[] = [];
