@@ -21,10 +21,18 @@ app.engine('html', ngExpressEngine({
   bootstrap: ServerAppModuleNgFactory
 }));
 
+function httpsRedirect(req, res, next) {
+  if (req.headers.host.search('localhost') !== 0 && req.protocol === 'http') {
+    return res.redirect(301, 'https://' + req.headers.host + req.originalUrl);
+  }
+  next();
+};
+
 app.set('view engine', 'html');
 app.set('views', 'src');
 
 app.use(compression());
+app.use(httpsRedirect);
 app.use('/', express.static('dist', { index: false }));
 app.use('/assets', express.static(path.join(__dirname, 'assets'), { maxAge: 30 }));
 app.use('/service-worker.js', express.static(path.join(__dirname, 'assets/dist_root/service-worker.js'), { maxAge: 30 }));

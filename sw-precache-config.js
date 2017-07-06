@@ -11,7 +11,7 @@ module.exports = {
   stripPrefix: 'dist/',
   navigateFallback: '/index.html',
   runtimeCaching: [{
-    urlPattern: /learn-compute\.firebaseio\.com/,
+    urlPattern: /learn-compute\.firebaseio\.com|/,
     handler: 'networkFirst'
   }]
 };
